@@ -115,7 +115,7 @@ do
         "LibreELEC (Kodi)")
 
 #Starting LibreELEC Script
-bash <(wget -qO- http://userver.inwebxdesigns.com/libreelec_by_berryserver.sh)
+bash <(wget -qO- https://git.io/fx6Zc)
 		break
             ;;
         "Exit")
