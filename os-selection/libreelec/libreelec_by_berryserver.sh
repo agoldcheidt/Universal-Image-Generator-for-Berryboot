@@ -36,19 +36,19 @@ do
         "LibreELEC Stable Builds [Official]")
 
 #Starting Script
-bash <(wget -qO- http://userver.inwebxdesigns.com/libreelec_official_stable_builds_berryboot.sh)
+bash <(wget -qO- https://git.io/fx6ZW)
 		break
             ;;
         "LibreELEC Testing Builds [Official]")
 		
 #Starting Script
-bash <(wget -qO- http://userver.inwebxdesigns.com/libreelec_official_testing_builds_berryboot.sh)
+bash <(wget -qO- https://git.io/fx6Z8)
 		break
             ;;
 			"LibreELEC Dev Builds [Milhouse]")
 			
 #Starting Script
-bash <(wget -qO- http://userver.inwebxdesigns.com/libreelec_dev_builds_milhouse_berryboot.sh)
+bash <(wget -qO- https://git.io/fx6Z4)
 		break
             ;;
         "Exit")
