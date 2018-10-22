@@ -1,5 +1,5 @@
 # Universal Image Generator for Berryboot
-Now you can create your own Berryboot images from Multiples Operating Systems.
+Now you can create your own Berryboot images of Multiples Operating Systems. This script will run on: Debian/Ubuntu, CentOS, Fedora and ArchLinux. 
 ## Install Wget & Sudo
 First, install wget and sudo according to your OS:
 
