@@ -32,6 +32,6 @@ This script will:
 
 ### Support my project at: <a target="_blank" href="https://www.patreon.com/berryserver">https://www.patreon.com/berryserver</a>
 
-![BerryServer](https://dl.inwebxdesigns.com/storage/hotlink-ok/patreon-berryserver.png)
+![BerryServer](https://dl.inwebxdesigns.com/storage/hotlink-ok/patreon-berryserver1.png)
 
 &nbsp;
