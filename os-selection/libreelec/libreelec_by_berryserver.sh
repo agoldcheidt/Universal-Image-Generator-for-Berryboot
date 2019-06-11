@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # LibreELEC Image Generator for Berryboot
-# Copyright 2018 Alexander G.
+# Copyright 2018-2019 Alexander G.
 # http://www.alexgoldcheidt.com
 # https://github.com/agoldcheidt
 
