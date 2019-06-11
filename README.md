@@ -28,10 +28,10 @@ This script will:
 
 ### For already converted OS images, go to: <a target="_blank" href="http://berryboot.alexgoldcheidt.com/images/">http://berryboot.alexgoldcheidt.com/images/</a>
 
+![BerryServer](https://upload.inwebxdesigns.com/hotlink-ok/berryserver_2019_logo_github-1560271666-237.png)
+
+### Support my project at: <a target="_blank" href="https://www.paypal.me/alexgoldc">https://www.paypal.me/alexgoldc</a>
+
 ![BerryServer](https://upload.inwebxdesigns.com/hotlink-ok/website_support_paypal-1560271174-695.png)
-
-### Support my project at: <a target="_blank" href="https://www.paypal.me/alexgoldc">https://www.patreon.com/berryserver</a>
-
-![BerryServer](https://dl.inwebxdesigns.com/storage/hotlink-ok/patreon-berryserver1.png)
 
 &nbsp;
