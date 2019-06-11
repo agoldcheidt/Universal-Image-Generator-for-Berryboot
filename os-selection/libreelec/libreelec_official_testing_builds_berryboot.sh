@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # LibreELEC Testing Build Image Generator for Berryboot
-# Copyright 2018 Alexander G.
+# Copyright 2018-2019 Alexander G.
 # http://www.alexgoldcheidt.com
 # https://github.com/agoldcheidt
 
@@ -54,7 +54,7 @@ clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI1/ZERO IMAGE ####"
 echo ""
-            wget -i ".download-link-final"
+            aria2c -x 4 -s 4 -i ".download-link-final"
 			clear
 echo ""
 echo "#### DECOMPRESSING LibreELEC RPI1/ZERO IMAGE ####"
@@ -74,11 +74,14 @@ echo ""
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ LibreELEC.Official.RPi.Zero.Testing.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link .download-link1 .download-link-final
+			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### RPI1/ZERO IMAGE READY! ####"
 echo ""
+echo "-----------------------------------------------";
+echo "Support my project at: paypal.me/alexgoldc";
+echo "-----------------------------------------------";
 			break
             ;;
         "Raspberry Pi 2/3")
@@ -101,7 +104,7 @@ clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI2/RPI3 IMAGE ####"
 echo ""
-            wget -i ".download-link-final"
+            aria2c -x 4 -s 4 -i ".download-link-final"
 			clear
 echo ""
 echo "#### DECOMPRESSING LibreELEC RPI2/RPI3 IMAGE ####"
@@ -121,11 +124,14 @@ echo ""
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ LibreELEC.Official.RPi2.RPi3.Testing.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link .download-link1 .download-link-final
+			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### RPI2/RPI3 IMAGE READY! ####"
 echo ""
+echo "-----------------------------------------------";
+echo "Support my project at: paypal.me/alexgoldc";
+echo "-----------------------------------------------";
 			break
             ;;
 			"All Raspberry Pi Devices")
@@ -150,7 +156,7 @@ clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI1/ZERO IMAGE ####"
 echo ""
-            wget -i ".download-link-final"
+            aria2c -x 4 -s 4 -i ".download-link-final"
 			clear
 echo ""
 echo "#### DECOMPRESSING LibreELEC RPI1/ZERO IMAGE ####"
@@ -170,7 +176,7 @@ echo ""
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ LibreELEC.Official.RPi.Zero.Testing.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link .download-link1 .download-link-final
+			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### RPI1/ZERO IMAGE READY! ####"
@@ -195,7 +201,7 @@ clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI2/RPI3 IMAGE ####"
 echo ""
-            wget -i ".download-link-final"
+            aria2c -x 4 -s 4 -i ".download-link-final"
 			clear
 echo ""
 echo "#### DECOMPRESSING LibreELEC RPI2/RPI3 IMAGE ####"
@@ -215,11 +221,14 @@ echo ""
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ LibreELEC.Official.RPi2.RPi3.Testing.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link .download-link1 .download-link-final
+			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### ALL IMAGES READY! ####"
 echo ""
+echo "-----------------------------------------------";
+echo "Support my project at: paypal.me/alexgoldc";
+echo "-----------------------------------------------";
 			break
             ;;
         "Exit")
