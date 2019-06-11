@@ -1,5 +1,5 @@
 # Universal Image Generator for Berryboot
-Now you can create your own Berryboot images of Multiples Operating Systems. This script will run on: Debian/Ubuntu, CentOS, Fedora and ArchLinux. 
+Now you can create your own Berryboot images of Multiples Operating Systems. This script run on: Debian/Ubuntu, CentOS, Fedora and ArchLinux. 
 ## Install Wget & Sudo
 First, install wget and sudo according to your OS:
 
@@ -15,7 +15,7 @@ First, install wget and sudo according to your OS:
 Execute the script on any terminal and follow the instructions:
 <pre>bash <(wget -qO- https://git.io/fx6ZG)</pre>
 
-![UniversalGeneator](https://dl.inwebxdesigns.com/storage/hotlink-ok/universal-image-generator-for-berryboot-v1.png)
+![UniversalGeneator](https://upload.inwebxdesigns.com/hotlink-ok/berryserver_universal_script-1560271173-349.png)
 
 This script will:
 <ul>
@@ -28,9 +28,9 @@ This script will:
 
 ### For already converted OS images, go to: <a target="_blank" href="http://berryboot.alexgoldcheidt.com/images/">http://berryboot.alexgoldcheidt.com/images/</a>
 
-![BerryServer](https://dl.inwebxdesigns.com/storage/hotlink-ok/berryserver_logo_server_04_2017.png)
+![BerryServer](https://upload.inwebxdesigns.com/hotlink-ok/website_support_paypal-1560271174-695.png)
 
-### Support my project at: <a target="_blank" href="https://www.patreon.com/berryserver">https://www.patreon.com/berryserver</a>
+### Support my project at: <a target="_blank" href="https://www.paypal.me/alexgoldc">https://www.patreon.com/berryserver</a>
 
 ![BerryServer](https://dl.inwebxdesigns.com/storage/hotlink-ok/patreon-berryserver1.png)
 
