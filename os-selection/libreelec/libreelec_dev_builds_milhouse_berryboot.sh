@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# LibreELEC Alpha Builds Image Generator for Berryboot
-# Copyright 2018 Alexander G.
+# LibreELEC DEV Builds Image Generator for Berryboot
+# Copyright 2018-2019 Alexander G.
 # http://www.alexgoldcheidt.com
 # https://github.com/agoldcheidt
 
@@ -29,8 +29,8 @@ echo "--------------------------------------------------------"
 base="http://milhouse.libreelec.tv/builds/master/RPi/"
 
 #Names for Converted OS Images
-NAME1="libreelec_DEV_milhouse_kodi_18_leia_rpi1_zero_berryboot-$date.img"
-NAME2="libreelec_DEV_milhouse_kodi_18_leia_rpi2_rpi3_berryboot-$date.img"
+NAME1="libreelec_DEV_milhouse_kodi_19_matrix_rpi1_zero_berryboot-$date.img"
+NAME2="libreelec_DEV_milhouse_kodi_19_matrix_rpi2_rpi3_berryboot-$date.img"
 
 echo ""
 echo "#### LIBREELEC DEV IMAGE GENERATOR FOR BERRYBOOT ####"
@@ -48,11 +48,13 @@ echo ""
 echo "#### DOWNLOADING LIBREELEC RPI1/ZERO URLs ####"
 echo ""		
 # download website source code
-wget -q -O - http://milhouse.libreelec.tv/builds/master/RPi/ | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 # Correcting urls addresses
 sed -i "s|LibreELEC|http://milhouse.libreelec.tv/builds/master/RPi/LibreELEC|g" .download-link
+#Selecting Rpi Build
+sed -n '/LibreELEC-RPi*/p' .download-link > .download-link1
 # getting latest version
-tail -n1 .download-link > .download-link-final
+head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
@@ -77,13 +79,13 @@ echo ""
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ $NAME1 -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link .download-link-final
+			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### LIBREELEC RPI1/ZERO IMAGE READY! ####"
 echo ""
 echo "-----------------------------------------------";
-echo "Support my project at: patreon.com/berryserver/";
+echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
 			break
             ;;
@@ -92,11 +94,13 @@ echo ""
 echo "#### DOWNLOADING LIBREELEC RPI2/RPI3 URLs ####"
 echo ""		
 # download website source code
-wget -q -O - http://milhouse.libreelec.tv/builds/master/RPi2/ | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi2/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 # Correcting urls addresses
 sed -i "s|LibreELEC|http://milhouse.libreelec.tv/builds/master/RPi2/LibreELEC|g" .download-link
+#Selecting Rpi Build
+sed -n '/LibreELEC-RPi*/p' .download-link > .download-link1
 # getting latest version
-tail -n1 .download-link > .download-link-final
+head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
@@ -121,13 +125,13 @@ echo ""
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ $NAME2 -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link .download-link-final
+			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### LIBREELEC RPI2/RPI3 IMAGE READY! ####"
 echo ""
 echo "-----------------------------------------------";
-echo "Support my project at: patreon.com/berryserver/";
+echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
 			break
             ;;
@@ -136,11 +140,13 @@ echo ""
 echo "#### DOWNLOADING LIBREELEC RPI1/ZERO URLs ####"
 echo ""		
 # download website source code
-wget -q -O - http://milhouse.libreelec.tv/builds/master/RPi/ | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 # Correcting urls addresses
 sed -i "s|LibreELEC|http://milhouse.libreelec.tv/builds/master/RPi/LibreELEC|g" .download-link
+#Selecting Rpi Build
+sed -n '/LibreELEC-RPi*/p' .download-link > .download-link1
 # getting latest version
-tail -n1 .download-link > .download-link-final
+head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
@@ -165,7 +171,7 @@ echo ""
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ $NAME1 -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link .download-link-final
+			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### LIBREELEC RPI1/ZERO IMAGE READY! ####"
@@ -175,11 +181,13 @@ echo ""
 echo "#### DOWNLOADING LIBREELEC RPI2/RPI3 URLs ####"
 echo ""		
 # download website source code
-wget -q -O - http://milhouse.libreelec.tv/builds/master/RPi2/ | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi2/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 # Correcting urls addresses
 sed -i "s|LibreELEC|http://milhouse.libreelec.tv/builds/master/RPi2/LibreELEC|g" .download-link
+#Selecting Rpi Build
+sed -n '/LibreELEC-RPi*/p' .download-link > .download-link1
 # getting latest version
-tail -n1 .download-link > .download-link-final
+head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
@@ -204,13 +212,13 @@ echo ""
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ $NAME2 -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link .download-link-final
+			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### ALL LIBREELEC IMAGES READY! ####"
 echo ""
 echo "-----------------------------------------------";
-echo "Support my project at: patreon.com/berryserver/";
+echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
 			break
             ;;
