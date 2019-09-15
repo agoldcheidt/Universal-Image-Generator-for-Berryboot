@@ -13,6 +13,9 @@ fi
 
 #date
 date=$(date +"%d-%b-%Y")
+#show version 
+LATEST=$( wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/stable.i" )
+clear
 
 #Some arwork...
 echo "  _    _ _            ___ _    ___ ___   ___ _        _    _     ";
@@ -36,20 +39,22 @@ do
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI1/ZERO URLs ####"
 echo ""		
+echo "LibreELEC latest release (Stable) ${LATEST}"
+echo ""
 #Download website source code
-wget -q -O - "http://mirror.lstn.net/libreelec/?C=M;O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 #Correcting urls addresses
-sed -i "s|LibreELEC|http://mirror.lstn.net/libreelec/LibreELEC|g" .download-link
+sed -i "s|Stable1|http://berrytest.alexgoldcheidt.com:50841/Downloads/Stable1|g" .download-link
 #Selecting Rpi Build
-sed -n '/LibreELEC-RPi2.arm-9.*.img.gz/p' .download-link > .download-link1
+sed -n '/Stable1*/p' .download-link > .download-link1
 #Correcting Rpi1 url address
-sed -i "s|LibreELEC-RPi2|LibreELEC-RPi|g" .download-link1
+#sed -i "s|LibreELEC-RPi2|LibreELEC-RPi|g" .download-link1
 #getting latest version
 head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
-sleep 1
+sleep 3
 clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI1/ZERO IMAGE ####"
@@ -59,8 +64,8 @@ echo ""
 echo ""
 echo "#### DECOMPRESSING LibreELEC RPI1/ZERO IMAGE ####"
 echo ""
-			sudo gunzip LibreELEC*.img.gz
-			sudo losetup -f -P LibreELEC-RPi*.img
+			sudo gunzip Stable1-LibreELEC*.img.gz
+			sudo losetup -f -P Stable1-LibreELEC-RPi*.img
 			sudo mount /dev/loop0p1 /mnt
 			sudo unsquashfs /mnt/SYSTEM
 			sudo umount /mnt
@@ -73,8 +78,8 @@ echo ""
 			sudo sed -i 's/^\PARTUUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
-			sudo mksquashfs squashfs-root/ LibreELEC.Official.RPi.Zero.Stable.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link .download-link1 .download-link-final
+			sudo mksquashfs squashfs-root/ libreelec.rpi1.zero.stable-${LATEST}.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
+			sudo rm -rf Stable1-LibreELEC-RPi.arm* squashfs-root .download-link .download-link1 .download-link-final
 			clear
 echo ""
 echo "#### RPI1/ZERO IMAGE READY! ####"
@@ -82,24 +87,29 @@ echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+
 			break
             ;;
         "Raspberry Pi 2/3")
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI2/RPI3 URLs ####"
 echo ""		
+echo "LibreELEC latest release (Stable) ${LATEST}"
+echo ""
 #Download website source code
-wget -q -O - "http://mirror.lstn.net/libreelec/?C=M;O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 #Correcting urls addresses
-sed -i "s|LibreELEC|http://mirror.lstn.net/libreelec/LibreELEC|g" .download-link
+sed -i "s|Stable2|http://berrytest.alexgoldcheidt.com:50841/Downloads/Stable2|g" .download-link
 #Selecting Rpi Build
-sed -n '/LibreELEC-RPi2.arm-9.*.img.gz/p' .download-link > .download-link1
+sed -n '/Stable2*/p' .download-link > .download-link1
+#Correcting Rpi1 url address
+#sed -i "s|LibreELEC-RPi2|LibreELEC-RPi|g" .download-link1
 #getting latest version
-head -n1 .download-link1 > .download-link-final
+tail -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
-sleep 1
+sleep 3
 clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI2/RPI3 IMAGE ####"
@@ -109,8 +119,8 @@ echo ""
 echo ""
 echo "#### DECOMPRESSING LibreELEC RPI2/RPI3 IMAGE ####"
 echo ""
-			sudo gunzip LibreELEC*.img.gz
-			sudo losetup -f -P LibreELEC-RPi2*.img
+			sudo gunzip Stable2-LibreELEC*.img.gz
+			sudo losetup -f -P Stable2-LibreELEC-RPi*.img
 			sudo mount /dev/loop0p1 /mnt
 			sudo unsquashfs /mnt/SYSTEM
 			sudo umount /mnt
@@ -123,8 +133,8 @@ echo ""
 			sudo sed -i 's/^\PARTUUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
-			sudo mksquashfs squashfs-root/ LibreELEC.Official.RPi2.RPi3.Stable.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link .download-link1 .download-link-final
+			sudo mksquashfs squashfs-root/ libreelec.rpi2.rpi3.stable-${LATEST}.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
+			sudo rm -rf Stable2-LibreELEC-RPi2.arm* squashfs-root .download-link .download-link1 .download-link-final
 			clear
 echo ""
 echo "#### RPI2/RPI3 IMAGE READY! ####"
@@ -132,26 +142,29 @@ echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+
 			break
             ;;
 			"All Raspberry Pi Devices")
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI1/ZERO URLs ####"
 echo ""		
+echo "LibreELEC latest release (Stable) ${LATEST}"
+echo ""
 #Download website source code
-wget -q -O - "http://mirror.lstn.net/libreelec/?C=M;O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 #Correcting urls addresses
-sed -i "s|LibreELEC|http://mirror.lstn.net/libreelec/LibreELEC|g" .download-link
+sed -i "s|Stable1|http://berrytest.alexgoldcheidt.com:50841/Downloads/Stable1|g" .download-link
 #Selecting Rpi Build
-sed -n '/LibreELEC-RPi2.arm-9.*.img.gz/p' .download-link > .download-link1
+sed -n '/Stable1*/p' .download-link > .download-link1
 #Correcting Rpi1 url address
-sed -i "s|LibreELEC-RPi2|LibreELEC-RPi|g" .download-link1
+#sed -i "s|LibreELEC-RPi2|LibreELEC-RPi|g" .download-link1
 #getting latest version
 head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
-sleep 1
+sleep 3
 clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI1/ZERO IMAGE ####"
@@ -161,8 +174,8 @@ echo ""
 echo ""
 echo "#### DECOMPRESSING LibreELEC RPI1/ZERO IMAGE ####"
 echo ""
-			sudo gunzip LibreELEC*.img.gz
-			sudo losetup -f -P LibreELEC-RPi*.img
+			sudo gunzip Stable1-LibreELEC*.img.gz
+			sudo losetup -f -P Stable1-LibreELEC-RPi*.img
 			sudo mount /dev/loop0p1 /mnt
 			sudo unsquashfs /mnt/SYSTEM
 			sudo umount /mnt
@@ -175,8 +188,8 @@ echo ""
 			sudo sed -i 's/^\PARTUUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
-			sudo mksquashfs squashfs-root/ LibreELEC.Official.RPi.Zero.Stable.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi.arm* squashfs-root .download-link .download-link1 .download-link-final
+			sudo mksquashfs squashfs-root/ libreelec.rpi1.zero.stable-${LATEST}.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
+			sudo rm -rf Stable1-LibreELEC-RPi.arm* squashfs-root .download-link .download-link1 .download-link-final
 			clear
 echo ""
 echo "#### RPI1/ZERO IMAGE READY! ####"
@@ -185,18 +198,22 @@ clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI2/RPI3 URLs ####"
 echo ""		
+echo "LibreELEC latest release (Stable) ${LATEST}"
+echo ""
 #Download website source code
-wget -q -O - "http://mirror.lstn.net/libreelec/?C=M;O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 #Correcting urls addresses
-sed -i "s|LibreELEC|http://mirror.lstn.net/libreelec/LibreELEC|g" .download-link
+sed -i "s|Stable2|http://berrytest.alexgoldcheidt.com:50841/Downloads/Stable2|g" .download-link
 #Selecting Rpi Build
-sed -n '/LibreELEC-RPi2.arm-9.*.img.gz/p' .download-link > .download-link1
+sed -n '/Stable2*/p' .download-link > .download-link1
+#Correcting Rpi1 url address
+#sed -i "s|LibreELEC-RPi2|LibreELEC-RPi|g" .download-link1
 #getting latest version
-head -n1 .download-link1 > .download-link-final
+tail -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
-sleep 1
+sleep 3
 clear
 echo ""
 echo "#### DOWNLOADING LibreELEC RPI2/RPI3 IMAGE ####"
@@ -206,8 +223,8 @@ echo ""
 echo ""
 echo "#### DECOMPRESSING LibreELEC RPI2/RPI3 IMAGE ####"
 echo ""
-			sudo gunzip LibreELEC*.img.gz
-			sudo losetup -f -P LibreELEC-RPi2*.img
+			sudo gunzip Stable2-LibreELEC*.img.gz
+			sudo losetup -f -P Stable2-LibreELEC-RPi*.img
 			sudo mount /dev/loop0p1 /mnt
 			sudo unsquashfs /mnt/SYSTEM
 			sudo umount /mnt
@@ -220,15 +237,16 @@ echo ""
 			sudo sed -i 's/^\PARTUUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
-			sudo mksquashfs squashfs-root/ LibreELEC.Official.RPi2.RPi3.Stable.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
-			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link .download-link1 .download-link-final
+			sudo mksquashfs squashfs-root/ libreelec.rpi2.rpi3.stable-${LATEST}.Berryboot-$date.img -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
+			sudo rm -rf Stable2-LibreELEC-RPi2.arm* squashfs-root .download-link .download-link1 .download-link-final
 			clear
 echo ""
-echo "#### ALL IMAGES READY! ####"
+echo "#### ALL LIBREELEC IMAGES READY! ####"
 echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+
 			break
             ;;
         "Exit")
