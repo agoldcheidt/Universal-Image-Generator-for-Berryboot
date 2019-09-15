@@ -46,7 +46,9 @@ do
 		
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI1/ZERO URLs ####"
-echo ""		
+echo ""	
+echo "(Daily Build from Milhouse)"
+echo ""	
 # download website source code
 wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 # Correcting urls addresses
@@ -58,7 +60,7 @@ head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
-sleep 1
+sleep 3
 clear
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI1/ZERO IMAGE ####"
@@ -68,8 +70,8 @@ echo ""
 echo ""
 echo "#### DECOMPRESSING LIBREELEC RPI1/ZERO IMAGE ####"
 echo ""
-			sudo find . -name '*.tar' -exec sh -c 'tar -xf $1' _ {} \;
-			sudo find . -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
+			sudo find . -name 'LibreELEC-RPi.arm*.tar' -exec sh -c 'tar -xf $1' _ {} \;
+			sudo find LibreELEC-RPi.arm*/target/ -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
 clear
 echo ""
 echo "#### CONVERTING LIBREELEC RPI1/ZERO IMAGE TO BERRYBOOT ####"
@@ -92,6 +94,8 @@ echo "-----------------------------------------------";
         "Raspberry Pi 2/3")
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI2/RPI3 URLs ####"
+echo ""	
+echo "(Daily Build from Milhouse)"
 echo ""		
 # download website source code
 wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi2/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
@@ -104,7 +108,7 @@ head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
-sleep 1
+sleep 3
 clear
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI2/RPI3 IMAGE ####"
@@ -114,8 +118,8 @@ echo ""
 echo ""
 echo "#### DECOMPRESSING LIBREELEC RPI2/RPI3 IMAGE ####"
 echo ""
-			sudo find . -name '*.tar' -exec sh -c 'tar -xf $1' _ {} \;
-			sudo find . -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
+			sudo find . -name 'LibreELEC-RPi2.arm*.tar' -exec sh -c 'tar -xf $1' _ {} \;
+			sudo find LibreELEC-RPi2.arm*/target/ -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
 clear
 echo ""
 echo "#### CONVERTING LIBREELEC RPI2/RPI3 IMAGE TO BERRYBOOT ####"
@@ -138,6 +142,8 @@ echo "-----------------------------------------------";
 			"All Raspberry Pi Devices")
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI1/ZERO URLs ####"
+echo ""	
+echo "(Daily Build from Milhouse)"
 echo ""		
 # download website source code
 wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
@@ -150,7 +156,7 @@ head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
-sleep 1
+sleep 3
 clear
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI1/ZERO IMAGE ####"
@@ -160,8 +166,8 @@ echo ""
 echo ""
 echo "#### DECOMPRESSING LIBREELEC RPI1/ZERO IMAGE ####"
 echo ""
-			sudo find . -name '*.tar' -exec sh -c 'tar -xf $1' _ {} \;
-			sudo find . -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
+			sudo find . -name 'LibreELEC-RPi.arm*.tar' -exec sh -c 'tar -xf $1' _ {} \;
+			sudo find LibreELEC-RPi.arm*/target/ -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
 clear
 echo ""
 echo "#### CONVERTING LIBREELEC RPI1/ZERO IMAGE TO BERRYBOOT ####"
@@ -180,6 +186,8 @@ clear
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI2/RPI3 URLs ####"
 echo ""		
+echo "(Daily Build from Milhouse)"
+echo ""	
 # download website source code
 wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi2/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 # Correcting urls addresses
@@ -191,7 +199,7 @@ head -n1 .download-link1 > .download-link-final
 echo ""
 echo "#### DONE! ####"
 echo ""
-sleep 1
+sleep 3
 clear
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI2/RPI3 IMAGE ####"
@@ -201,8 +209,8 @@ echo ""
 echo ""
 echo "#### DECOMPRESSING LIBREELEC RPI2/RPI3 IMAGE ####"
 echo ""
-			sudo find . -name '*.tar' -exec sh -c 'tar -xf $1' _ {} \;
-			sudo find . -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
+			sudo find . -name 'LibreELEC-RPi2.arm*.tar' -exec sh -c 'tar -xf $1' _ {} \;
+			sudo find LibreELEC-RPi2.arm*/target/ -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
 clear
 echo ""
 echo "#### CONVERTING LIBREELEC RPI2/RPI3 IMAGE TO BERRYBOOT ####"
