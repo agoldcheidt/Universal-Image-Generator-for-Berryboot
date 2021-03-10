@@ -40,7 +40,7 @@ echo ""
 echo "#### INSTALLING ARIA2/SQUASHFS-TOOLS ####"
 echo ""		
 #installing packages
-sudo apt-get update && sudo apt-get install aria2 squashfs-tools -y
+sudo apt-get update && sudo apt-get install aria2 squashfs-tools bsdtar -y
 echo ""
 echo "#### DONE! ####"
 echo ""
@@ -53,7 +53,7 @@ echo ""
 echo "#### INSTALLING ARIA2/SQUASHFS-TOOLS ####"
 echo ""		
 #installing packages
-sudo yum install aria2 squashfs-tools -y
+sudo yum install aria2 squashfs-tools bsdtar -y
 echo ""
 echo "#### DONE! ####"
 echo ""
@@ -66,7 +66,7 @@ echo ""
 echo "#### INSTALLING ARIA2/SQUASHFS-TOOLS ####"
 echo ""		
 #installing packages
-sudo dnf install aria2 squashfs-tools -y
+sudo dnf install aria2 squashfs-tools bsdtar -y
 echo ""
 echo "#### DONE! ####"
 echo ""
@@ -79,7 +79,7 @@ echo ""
 echo "#### INSTALLING ARIA2/SQUASHFS-TOOLS ####"
 echo ""		
 #installing packages
-pacman -Syy --noconfirm aria2 squashfs-tools --force
+pacman -Syy --noconfirm aria2 squashfs-tools bsdtar --force
 echo ""
 echo "#### DONE! ####"
 echo ""
@@ -108,7 +108,7 @@ echo ""
 
 #OS Menu Selection
 PS3='Please select the OS: '
-options=("LibreELEC (Kodi)" "Exit")
+options=("ArchLinux ARM" "LibreELEC (Kodi)" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -116,6 +116,12 @@ do
 
 #Starting LibreELEC Script
 bash <(wget -qO- https://git.io/fx6Zc)
+		break
+            ;;
+	"ArchLinux ARM")
+
+#Starting ArchLinux ARM Script
+bash <(wget -qO- https://git.io/JqZD0)
 		break
             ;;
         "Exit")
