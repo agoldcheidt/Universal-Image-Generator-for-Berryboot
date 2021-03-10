@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Universal Image Generator for Berryboot
-# Copyright 2018-2019 Alexander G.
-# http://www.alexgoldcheidt.com
+# Copyright 2018-2021 Alexander G.
+# https://www.alexgoldcheidt.com
 # https://github.com/agoldcheidt
 
 if [ "$EUID" -ne 0 ]
@@ -22,14 +22,14 @@ echo "  ___                   ___                      ";
 echo " | _ ) ___ _ _ _ _ _  _/ __| ___ _ ___ _____ _ _ ";
 echo " | _ \/ -_) '_| '_| || \__ \/ -_) '_\ V / -_) '_|";
 echo " |___/\___|_| |_|  \_, |___/\___|_|  \_/\___|_|  ";
-echo " 2019.09.15        |__/                          ";
+echo " 2021.03.10        |__/                          ";
 echo "-------------------------------------------------";
 echo ""
 echo "#### INSTALLING DEPENDENCIES ####"
 echo ""
 
 #OS Menu Selection
-PS3='Please select your OS: '
+PS3='Please select your current OS: '
 options=("Debian/Ubuntu" "CentOS" "Fedora" "ArchLinux" "Skip")
 select opt in "${options[@]}"
 do
