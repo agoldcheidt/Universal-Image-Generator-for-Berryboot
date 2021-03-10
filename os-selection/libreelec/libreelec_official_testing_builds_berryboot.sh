@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # LibreELEC Testing Build Image Generator for Berryboot
-# Copyright 2018-2019 Alexander G.
-# http://www.alexgoldcheidt.com
+# Copyright 2018-2021 Alexander G.
+# https://www.alexgoldcheidt.com
 # https://github.com/agoldcheidt
 
 if [ "$EUID" -ne 0 ]
@@ -15,7 +15,7 @@ fi
 date=$(date +"%d-%b-%Y")
 
 #show version 
-LATEST=$( wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/testing.i" )
+LATEST=$( wget -q -O - "http://berrytest.alexgoldcheidt.com:51001/Downloads/testing.i" )
 clear
 
 #Some arwork...
@@ -43,9 +43,9 @@ echo ""
 echo "LibreELEC latest release (Testing) ${LATEST}"
 echo ""
 #Download website source code
-wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://berrytest.alexgoldcheidt.com:51001/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 #Correcting urls addresses
-sed -i "s|Testing1|http://berrytest.alexgoldcheidt.com:50841/Downloads/Testing1|g" .download-link
+sed -i "s|Testing1|http://berrytest.alexgoldcheidt.com:51001/Downloads/Testing1|g" .download-link
 #Selecting Rpi Build
 sed -n '/Testing1*/p' .download-link > .download-link1
 #Correcting Rpi1 url address
@@ -66,11 +66,11 @@ echo ""
 echo "#### DECOMPRESSING LibreELEC RPI1/ZERO IMAGE ####"
 echo ""
 			sudo gunzip Testing1-LibreELEC*.img.gz
-			sudo losetup -f -P Testing1-LibreELEC-RPi*.img
-			sudo mount /dev/loop0p1 /mnt
+			sudo losetup loop55 -P Testing1-LibreELEC-RPi*.img
+			sudo mount /dev/loop55p1 /mnt
 			sudo unsquashfs /mnt/SYSTEM
 			sudo umount /mnt
-			sudo losetup -d /dev/loop0
+			sudo losetup -d /dev/loop55
 clear
 echo ""
 echo "#### CONVERTING LibreELEC RPI1/ZERO IMAGE TO BERRYBOOT ####"
@@ -88,6 +88,7 @@ echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+echo ""
 
 			break
             ;;
@@ -98,9 +99,9 @@ echo ""
 echo "LibreELEC latest release (Testing) ${LATEST}"
 echo ""
 #Download website source code
-wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://berrytest.alexgoldcheidt.com:51001/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 #Correcting urls addresses
-sed -i "s|Testing2|http://berrytest.alexgoldcheidt.com:50841/Downloads/Testing2|g" .download-link
+sed -i "s|Testing2|http://berrytest.alexgoldcheidt.com:51001/Downloads/Testing2|g" .download-link
 #Selecting Rpi Build
 sed -n '/Testing2*/p' .download-link > .download-link1
 #Correcting Rpi1 url address
@@ -121,11 +122,11 @@ echo ""
 echo "#### DECOMPRESSING LibreELEC RPI2/RPI3 IMAGE ####"
 echo ""
 			sudo gunzip Testing2-LibreELEC*.img.gz
-			sudo losetup -f -P Testing2-LibreELEC-RPi*.img
-			sudo mount /dev/loop0p1 /mnt
+			sudo losetup loop55 -P Testing2-LibreELEC-RPi*.img
+			sudo mount /dev/loop55p1 /mnt
 			sudo unsquashfs /mnt/SYSTEM
 			sudo umount /mnt
-			sudo losetup -d /dev/loop0
+			sudo losetup -d /dev/loop55
 clear
 echo ""
 echo "#### CONVERTING LibreELEC RPI2/RPI3 IMAGE TO BERRYBOOT ####"
@@ -143,6 +144,7 @@ echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+echo ""
 
 			break
             ;;
@@ -153,9 +155,9 @@ echo ""
 echo "LibreELEC latest release (Testing) ${LATEST}"
 echo ""
 #Download website source code
-wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://berrytest.alexgoldcheidt.com:51001/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 #Correcting urls addresses
-sed -i "s|Testing1|http://berrytest.alexgoldcheidt.com:50841/Downloads/Testing1|g" .download-link
+sed -i "s|Testing1|http://berrytest.alexgoldcheidt.com:51001/Downloads/Testing1|g" .download-link
 #Selecting Rpi Build
 sed -n '/Testing1*/p' .download-link > .download-link1
 #Correcting Rpi1 url address
@@ -176,11 +178,11 @@ echo ""
 echo "#### DECOMPRESSING LibreELEC RPI1/ZERO IMAGE ####"
 echo ""
 			sudo gunzip Testing1-LibreELEC*.img.gz
-			sudo losetup -f -P Testing1-LibreELEC-RPi*.img
-			sudo mount /dev/loop0p1 /mnt
+			sudo losetup loop55 -P Testing1-LibreELEC-RPi*.img
+			sudo mount /dev/loop55p1 /mnt
 			sudo unsquashfs /mnt/SYSTEM
 			sudo umount /mnt
-			sudo losetup -d /dev/loop0
+			sudo losetup -d /dev/loop55
 clear
 echo ""
 echo "#### CONVERTING LibreELEC RPI1/ZERO IMAGE TO BERRYBOOT ####"
@@ -202,9 +204,9 @@ echo ""
 echo "LibreELEC latest release (Testing) ${LATEST}"
 echo ""
 #Download website source code
-wget -q -O - "http://berrytest.alexgoldcheidt.com:50841/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+wget -q -O - "http://berrytest.alexgoldcheidt.com:51001/Downloads/" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
 #Correcting urls addresses
-sed -i "s|Testing2|http://berrytest.alexgoldcheidt.com:50841/Downloads/Testing2|g" .download-link
+sed -i "s|Testing2|http://berrytest.alexgoldcheidt.com:51001/Downloads/Testing2|g" .download-link
 #Selecting Rpi Build
 sed -n '/Testing2*/p' .download-link > .download-link1
 #Correcting Rpi1 url address
@@ -225,11 +227,11 @@ echo ""
 echo "#### DECOMPRESSING LibreELEC RPI2/RPI3 IMAGE ####"
 echo ""
 			sudo gunzip Testing2-LibreELEC*.img.gz
-			sudo losetup -f -P Testing2-LibreELEC-RPi*.img
-			sudo mount /dev/loop0p1 /mnt
+			sudo losetup loop55 -P Testing2-LibreELEC-RPi*.img
+			sudo mount /dev/loop55p1 /mnt
 			sudo unsquashfs /mnt/SYSTEM
 			sudo umount /mnt
-			sudo losetup -d /dev/loop0
+			sudo losetup -d /dev/loop55
 clear
 echo ""
 echo "#### CONVERTING LibreELEC RPI2/RPI3 IMAGE TO BERRYBOOT ####"
@@ -247,6 +249,7 @@ echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+echo ""
 
 			break
             ;;
