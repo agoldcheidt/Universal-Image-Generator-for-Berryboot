@@ -15,7 +15,7 @@ First, install wget and sudo according to your OS:
 Execute the script on any terminal and follow the instructions:
 <pre>bash <(wget -qO- https://git.io/fx6ZG)</pre>
 
-![UniversalGeneator](https://upload.inwebxdesigns.com/hotlink-ok/berryserver_universal_script-1560271173-349.png)
+![UniversalGeneator](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/berryserver_universal_script-1560271173-349.png)
 
 This script will:
 <ul>
@@ -28,10 +28,10 @@ This script will:
 
 ### For already converted OS images, go to: <a target="_blank" href="http://berryboot.alexgoldcheidt.com/images/">http://berryboot.alexgoldcheidt.com/images/</a>
 
-![BerryServer](https://upload.inwebxdesigns.com/hotlink-ok/berryserver_2019_logo_github-1560271666-237.png)
+![BerryServer](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/berryserver_2019_logo_github-1560271666-237.png)
 
 ### Support my project at: <a target="_blank" href="https://www.paypal.me/alexgoldc">https://www.paypal.me/alexgoldc</a>
 
-![BerryServer](https://upload.inwebxdesigns.com/hotlink-ok/website_support_paypal-1560271174-695.png)
+![BerryServer](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/website_support_paypal-1560271174-695.png)
 
 &nbsp;
