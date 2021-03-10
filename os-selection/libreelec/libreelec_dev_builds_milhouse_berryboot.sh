@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # LibreELEC DEV Builds Image Generator for Berryboot
-# Copyright 2018-2019 Alexander G.
-# http://www.alexgoldcheidt.com
+# Copyright 2018-2021 Alexander G.
+# https://www.alexgoldcheidt.com
 # https://github.com/agoldcheidt
 
 if [ "$EUID" -ne 0 ]
@@ -31,6 +31,7 @@ base="http://milhouse.libreelec.tv/builds/master/RPi/"
 #Names for Converted OS Images
 NAME1="libreelec_DEV_milhouse_kodi_19_matrix_rpi1_zero_berryboot-$date.img"
 NAME2="libreelec_DEV_milhouse_kodi_19_matrix_rpi2_rpi3_berryboot-$date.img"
+NAME4="libreelec_DEV_milhouse_kodi_19_matrix_rpi4_berryboot-$date.img"
 
 echo ""
 echo "#### LIBREELEC DEV IMAGE GENERATOR FOR BERRYBOOT ####"
@@ -38,7 +39,7 @@ echo ""
 
 #LibreELEC DEV Image Menu Selection
 PS3='Please select your device: '
-options=("Raspberry Pi 1/Zero" "Raspberry Pi 2/3" "All Raspberry Pi Devices" "Exit")
+options=("Raspberry Pi 1/Zero" "Raspberry Pi 2/3" "Raspberry Pi 4" "All Raspberry Pi Devices" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -89,6 +90,7 @@ echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+echo ""
 			break
             ;;
         "Raspberry Pi 2/3")
@@ -137,8 +139,59 @@ echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+echo ""
+			break
+            ;;			
+		"Raspberry Pi 4")
+echo ""
+echo "#### DOWNLOADING LIBREELEC RPI4 URLs ####"
+echo ""	
+echo "(Daily Build from Milhouse)"
+echo ""		
+# download website source code
+wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi4/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+# Correcting urls addresses
+sed -i "s|LibreELEC|http://milhouse.libreelec.tv/builds/master/RPi4/LibreELEC|g" .download-link
+#Selecting Rpi Build
+sed -n '/LibreELEC-RPi*/p' .download-link > .download-link1
+# getting latest version
+head -n1 .download-link1 > .download-link-final
+echo ""
+echo "#### DONE! ####"
+echo ""
+sleep 3
+clear
+echo ""
+echo "#### DOWNLOADING LIBREELEC RPI4 IMAGE ####"
+echo ""
+            aria2c -x 4 -s 4 -i ".download-link-final"
+			clear
+echo ""
+echo "#### DECOMPRESSING LIBREELEC RPI4 IMAGE ####"
+echo ""
+			sudo find . -name 'LibreELEC-RPi4.arm*.tar' -exec sh -c 'tar -xf $1' _ {} \;
+			sudo find LibreELEC-RPi4.arm*/target/ -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
+clear
+echo ""
+echo "#### CONVERTING LIBREELEC RPI4 IMAGE TO BERRYBOOT ####"
+echo ""
+			sudo sed -i 's/^\/dev\/mmcblk/#\0/g' squashfs-root/etc/fstab
+			sudo sed -i 's/^\PARTUUID/#\0/g' squashfs-root/etc/fstab
+			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
+			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
+			sudo mksquashfs squashfs-root/ $NAME4 -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
+			sudo rm -rf LibreELEC-RPi4.arm* squashfs-root .download-link*
+			clear
+echo ""
+echo "#### LIBREELEC RPI4 IMAGE READY! ####"
+echo ""
+echo "-----------------------------------------------";
+echo "Support my project at: paypal.me/alexgoldc";
+echo "-----------------------------------------------";
+echo ""
 			break
             ;;
+			
 			"All Raspberry Pi Devices")
 echo ""
 echo "#### DOWNLOADING LIBREELEC RPI1/ZERO URLs ####"
@@ -221,6 +274,45 @@ echo ""
 			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
 			sudo mksquashfs squashfs-root/ $NAME2 -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
 			sudo rm -rf LibreELEC-RPi2.arm* squashfs-root .download-link*
+clear
+echo ""
+echo "#### DOWNLOADING LIBREELEC RPI4 URLs ####"
+echo ""	
+echo "(Daily Build from Milhouse)"
+echo ""		
+# download website source code
+wget -q -O - "http://milhouse.libreelec.tv/builds/master/RPi4/?C=M&O=D" | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' > .download-link
+# Correcting urls addresses
+sed -i "s|LibreELEC|http://milhouse.libreelec.tv/builds/master/RPi4/LibreELEC|g" .download-link
+#Selecting Rpi Build
+sed -n '/LibreELEC-RPi*/p' .download-link > .download-link1
+# getting latest version
+head -n1 .download-link1 > .download-link-final
+echo ""
+echo "#### DONE! ####"
+echo ""
+sleep 3
+clear
+echo ""
+echo "#### DOWNLOADING LIBREELEC RPI4 IMAGE ####"
+echo ""
+            aria2c -x 4 -s 4 -i ".download-link-final"
+			clear
+echo ""
+echo "#### DECOMPRESSING LIBREELEC RPI4 IMAGE ####"
+echo ""
+			sudo find . -name 'LibreELEC-RPi4.arm*.tar' -exec sh -c 'tar -xf $1' _ {} \;
+			sudo find LibreELEC-RPi4.arm*/target/ -name 'SYSTEM' -exec sh -c 'unsquashfs $1' _ {} \;
+clear
+echo ""
+echo "#### CONVERTING LIBREELEC RPI4 IMAGE TO BERRYBOOT ####"
+echo ""
+			sudo sed -i 's/^\/dev\/mmcblk/#\0/g' squashfs-root/etc/fstab
+			sudo sed -i 's/^\PARTUUID/#\0/g' squashfs-root/etc/fstab
+			sudo sed -i 's/^\UUID/#\0/g' squashfs-root/etc/fstab
+			sudo sed -i 's/^\LABEL/#\0/g' squashfs-root/etc/fstab
+			sudo mksquashfs squashfs-root/ $NAME4 -comp lzo -e lib/modules var/cache/apt/archives var/lib/apt/lists
+			sudo rm -rf LibreELEC-RPi4.arm* squashfs-root .download-link*
 			clear
 echo ""
 echo "#### ALL LIBREELEC IMAGES READY! ####"
@@ -228,6 +320,7 @@ echo ""
 echo "-----------------------------------------------";
 echo "Support my project at: paypal.me/alexgoldc";
 echo "-----------------------------------------------";
+echo ""
 			break
             ;;
         "Exit")
