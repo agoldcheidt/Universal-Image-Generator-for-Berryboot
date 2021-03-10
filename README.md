@@ -4,13 +4,13 @@ Now you can create your own Berryboot images of Multiples Operating Systems. Thi
 First, install wget and sudo according to your OS:
 
 #### Debian/Ubuntu:
-<pre>apt-get update && apt-get install wget sudo -y</pre>
+<pre>apt-get update && apt-get install aria2 squashfs-tools bsdtar -y</pre>
 #### CentOS:
-<pre>yum install wget sudo -y</pre>
+<pre>yum install aria2 squashfs-tools bsdtar -y</pre>
 #### Fedora:
-<pre>dnf install wget sudo -y</pre>
+<pre>dnf install aria2 squashfs-tools bsdtar -y</pre>
 #### ArchLinux:
-<pre>pacman -Syy --noconfirm wget sudo --force</pre>
+<pre>pacman -Syy --noconfirm aria2 squashfs-tools bsdtar --force</pre>
 ## Usage
 Execute the script on any terminal and follow the instructions:
 <pre>bash <(wget -qO- https://git.io/fx6ZG)</pre>
