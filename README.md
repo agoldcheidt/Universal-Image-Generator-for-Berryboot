@@ -26,9 +26,9 @@ This script will:
 
 <hr>
 
-### For already converted OS images, go to: <a target="_blank" href="http://berryboot.alexgoldcheidt.com/images/">http://berryboot.alexgoldcheidt.com/images/</a>
+### For already converted OS images, go to: <a target="_blank" href="https://berryboot.alexgoldcheidt.com/images/">https://berryboot.alexgoldcheidt.com/images/</a>
 
-![BerryServer](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/berryserver_2019_logo_github-1560271666-237.png)
+![BerryServer](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/logo_berryserver_website_2020_150x150_opt-1615391161-71.png)
 
 ### Support my project at: <a target="_blank" href="https://www.paypal.me/alexgoldc">https://www.paypal.me/alexgoldc</a>
 
