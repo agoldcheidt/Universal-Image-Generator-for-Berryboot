@@ -15,12 +15,12 @@ First, install wget and sudo according to your OS:
 Execute the script on any terminal and follow the instructions:
 <pre>bash <(wget -qO- https://git.io/fx6ZG)</pre>
 
-![UniversalGeneator](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/berryserver_universal_script-1560271173-349.png)
+![UniversalGeneator](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/terminal_universal_berryboot_image_generator_opt-1615396780-968.png)
 
 This script will:
 <ul>
  	<li>Install Dependencies: Aria2 & Squashfs-Tools.</li>
- 	<li>Download Latest Operating Systems Versions.</li> 	
+ 	<li>Download Latest OS Images for Raspberry Pi.</li> 	
  	<li>Generate Squashfs Berryboot Images Files.</li>
 </ul>
 
