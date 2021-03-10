@@ -19,7 +19,7 @@ Execute the script on any terminal and follow the instructions:
 
 This script will:
 <ul>
- 	<li>Install Dependencies: Aria2 & Squashfs-Tools.</li>
+ 	<li>Install Dependencies: Aria2, Squashfs-Tools and Bsdtar.</li>
  	<li>Download Latest OS Images for Raspberry Pi.</li> 	
  	<li>Generate Squashfs Berryboot Images Files.</li>
 </ul>
