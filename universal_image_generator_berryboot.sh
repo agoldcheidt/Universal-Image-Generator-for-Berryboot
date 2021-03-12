@@ -108,20 +108,27 @@ echo ""
 
 #OS Menu Selection
 PS3='Please select the OS: '
-options=("ArchLinux ARM" "LibreELEC (Kodi)" "Exit")
+options=("ArchLinux ARM" "LibreELEC" "Raspberry Pi OS" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "LibreELEC (Kodi)")
+        "LibreELEC")
 
 #Starting LibreELEC Script
 bash <(wget -qO- https://git.io/fx6Zc)
 		break
             ;;
-	"ArchLinux ARM")
+			"ArchLinux ARM")
 
 #Starting ArchLinux ARM Script
 bash <(wget -qO- https://git.io/JqZD0)
+		break
+            ;;
+			
+"Raspberry Pi OS")
+
+#Starting Raspberry Pi OS Script
+bash <(wget -qO- https://git.io/JqCLj)
 		break
             ;;
         "Exit")
