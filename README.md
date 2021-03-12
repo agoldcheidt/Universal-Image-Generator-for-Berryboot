@@ -15,7 +15,7 @@ First, install wget and sudo according to your OS:
 Execute the script on any terminal and follow the instructions:
 <pre>bash <(wget -qO- https://git.io/fx6ZG)</pre>
 
-![UniversalGeneator](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/terminal_universal_berryboot_image_generator_opt-1615396780-968.png)
+![UniversalGeneator](https://home.alexgoldcheidt.com/upload-arfalyjs/hotlink-ok/universal_image_generator_for_berryboot_berryserver-opt-1615582212-51.png)
 
 This script will:
 <ul>
